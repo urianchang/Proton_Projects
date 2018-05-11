@@ -1,14 +1,13 @@
 import React, { Component } from 'react'; // import from react
 
-import { render, Window, App, Button } from 'proton-native'; // import the proton-native components
+import { render, Window, App, Button, Dialog } from 'proton-native'; // import the proton-native components
 
 class Example extends Component {
   render() { // all Components must have a render method
     return (
       <App> // you must always include App around everything
-        <Window title="Proton Native Rocks!" size={{w: 300, h: 300}} menuBar={false}>
-            {/* all your other components go here*/}
-            <Button stretchy={false} onClick={() => console.log('Hello')}>
+        <Window title="Proton Native Rocks!" size={{w: 500, h: 500}} menuBar={false}>
+            <Button onClick={() => Dialog('Error', {title: "Message"})}>
               Button
             </Button>
         </Window>
