@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Area,
   Box,
   Button,
   Text,
@@ -31,9 +30,8 @@ export default class GoldGenerators extends Component {
       <Box key={id}>
         <Button
           onClick={this.handleClick}
+          children={location}
           >
-          {location}
-        </Button>
       </Box>
     );
   }
