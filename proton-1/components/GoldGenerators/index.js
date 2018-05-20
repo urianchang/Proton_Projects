@@ -27,12 +27,11 @@ export default class GoldGenerators extends Component {
 
   renderGoldBoxes(location, id) {
     return(
-      <Box key={id}>
-        <Button
-          onClick={this.handleClick}
-          children={location}
-          >
-      </Box>
+      <Button
+        key={id}
+        onClick={this.handleClick}
+        children={location}
+        />
     );
   }
 
