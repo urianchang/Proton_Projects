@@ -26,30 +26,15 @@ class Main extends Component {
       isClosed: false,
     }
     this.closeWindow = this.closeWindow.bind(this);
-    this.makeGold = this.makeGold.bind(this);
+    this.updateGold = this.updateGold.bind(this);
   }
 
   closeWindow() {
     this.setState({isClosed: true})
   }
 
-  makeGold(location) {
-    const current_gold = this.state.gold;
-    let gold_earned = 0;
-    switch (location) {
-      case "Farm":
-        gold_earned = 10;
-        break;
-      case "Casino":
-        gold_earned = -10;
-        break;
-      case "Dojo":
-        gold_earned = 20;
-        break;
-      default:
-        gold_earned = 0;
-    }
-    const gold = current_gold + gold_earned;
+  updateGold(gold_earned) {
+    const gold = this.state.gold + gold_earned;
     this.setState({gold});
   }
 
@@ -70,16 +55,9 @@ class Main extends Component {
             <InfoBox
               gold={gold}
               />
-
-            <Button onClick={this.makeGold}>
-              Farm
-            </Button>
-            <Button onClick={this.makeGold}>
-              Casino
-            </Button>
-            <Button onClick={this.makeGold}>
-              Dojo
-            </Button>
+            <GoldGenerators
+              updateGold={this.updateGold}
+              />
           </Box>
         </Window>
       </App>
