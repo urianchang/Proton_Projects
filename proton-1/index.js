@@ -10,24 +10,12 @@ import {
   Area,
   Button,
   Box,
-  Menu,
 } from 'proton-native';
 
-
-class MainMenu extends Component {
-  render() {
-    return(
-      <Menu label="File">
-        <Menu.Item
-          type="Item"
-          children="Exit"
-          onClick={this.props.closeWindow}
-          />
-      </Menu>
-    );
-  }
-}
-
+//: Custom components
+import MainMenu from './components/MainMenu';
+import InfoBox from './components/InfoBox';
+import GoldGenerators from './components/GoldGenerators';
 
 
 class Main extends Component {
@@ -79,7 +67,10 @@ class Main extends Component {
           closed={isClosed}
           >
           <Box>
-            <Text>{`You have: ${gold} gold pieces`}</Text>
+            <InfoBox
+              gold={gold}
+              />
+
             <Button onClick={this.makeGold}>
               Farm
             </Button>
