@@ -33,6 +33,10 @@ class Main extends Component {
     this.setState({isClosed: true})
   }
 
+  resetGame = () => {
+    this.setState({ gold: 0 });
+  }
+
   updateGold(gold_earned) {
     const gold = this.state.gold + gold_earned;
     this.setState({gold});
@@ -44,6 +48,7 @@ class Main extends Component {
       <App>
         <MainMenu
           closeWindow={this.closeWindow}
+          resetGame={this.resetGame}
           />
         <Window
           title="Ninja Gold!"
